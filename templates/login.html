@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="card">
+    <h3 class="card-header text-muted text-center">Login</h3>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+        <form method="POST">
+            <div>
+                    <input class="form-control" type="email" name="email" placeholder="Your Email">
+            </div>
+
+            <div>
+                    <input class="form-control" type="password" name="password" placeholder="Your Password">
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" name="remember">
+                    Remember me
+                </label>
+            </div>
+            <button class="btn btn-success rounded">Yuborish</button>
+        </form>
+    <a href="/signup" class="btn btn-outline-info rounded btn-group-lg container-fluid">Ro'yxatdan o'tish</a>
+    </div>
+{% endblock %}

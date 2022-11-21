@@ -1,0 +1,240 @@
+{%extends "base.html"%}
+
+{% block title %} BioDataBank.uz {% endblock %}
+
+{% block body %}
+{% if name == 'unlogged' %}
+<div class="container">{{name}}</div>
+<div class="container"><a href="/login">login</a></div>
+{% else %}
+<div class="container"><a href="/profile">{{name}}</a></div>
+{% endif %}
+<div class="container">
+    <div class="card-deck py-3">
+
+        <div class="card bg-light text-dark">
+            <div class="card-header text-muted text-center">
+                Flora-uz
+            </div>
+            <img class="card-img-top" src="{{url_for('static', filename='image/one.png')}}" alt="Card image cap" style="height: 30vh;">
+            <div class="card-body text-center">
+                <h5 class="card-title">O'zbekiston Florasi</h5>
+                <p class="card-text">
+                    O'zbekistonda uchraydigan o'simlik turlari bazasi.
+                    O'zbekiston Florasidagi turlarni izlash
+                </p>
+                <div class="d-flex justify-content-center">
+                    <a href="/flora-uz" class="btn btn-outline-dark">O'tish</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card bg-light text-dark">
+            <div class="card-header text-muted  text-center">
+                Coming soon
+            </div>
+            <img class="card-img" src="{{url_for('static', filename='image/two.png')}}" alt="Card image cap" style="height: 30vh;">
+            <div class="card-body text-center">
+                <h5 class="card-title">O'zbekiston Faunasi</h5>
+                <p class="card-text"></p>
+                <br>
+                <br>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <a href="/#" class="btn btn-outline-dark">O'tish</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-light text-dark">
+            <div class="card-header text-muted  text-center">
+                Coming soon
+            </div>
+            <img class="card-img" src="{{url_for('static', filename='image/three.png')}}" alt="Card image cap" style="height: 30vh;">
+            <div class="card-body text-center">
+                <h5 class="card-title">O'zbekiston Faunasi</h5>
+                <p class="card-text"></p>
+                <br>
+                <br>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <a href="/#" class="btn btn-outline-dark">O'tish</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="card-deck py-3">
+        <div class="card bg-light">
+            <a href="https://www.ipni.org/" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">IPNI</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                <p class="card-text">
+                    Xalqaro o'simliklar nomlarining indeksi
+                </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="http://www.theplantlist.org/" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">PlantList</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+
+                <p class="card-text">
+                    O'simliklar sistematikasi bo'yicha katalog
+                </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="https://www.algaebase.org/" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">AlgaeBase</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                <p class="card-text">
+                    Xalqaro suvo'tlar katalogi
+                </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="http://animalbase.org/" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">AnimalBase</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                <p class="card-text">
+                    Hayvonlar bo'yicha umumiy katalog
+                </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="http://www.molluscabase.org/" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">MolluscaBase</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                    <p class="card-text">
+                        Molluskalar katalogi
+                    </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="https://wsc.nmbe.ch/" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">WSC</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                <p class="card-text">
+                    O'rgamchaklar eng katta katalogi
+                </p>
+            </div></div></a>
+        </div>
+    </div>
+
+    <p class="text-center">
+      <a class="btn btn-outline-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Yana
+      </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card-deck py-3">
+        <div class="card bg-light">
+            <a href="http://herbarium.uz/mb/dbspecies.php" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">TASH gerbariysi</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                <p class="card-text">
+                    O'zbekiston Milliy Gerbariysining (TASH) ma'lumotlar ombori
+                </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="https://www.plantarium.ru/" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">Plantarium</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                <p class="card-text">
+                    MDX davlatlari o'simliklaring onlayn aniqlagichi
+                </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="https://depo.msu.ru/" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">DepoMSU</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                <p class="card-text">
+                    Moskva Davlat Universitetining tirik organizmlarning kollektsiyalari
+                </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="https://plant.depo.msu.ru/" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">MGU gerbariysi</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                <p class="card-text">
+                    Moskva Davlat Universitetining onlayn gerbariysi
+                </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="http://www.calacademy.org/scientists/projects/catalog-of-fishes" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">ECF</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                    <p class="card-text">
+                        Baliqlar Sistematikasi katalogi
+                    </p>
+            </div></div></a>
+        </div>
+
+        <div class="card bg-light">
+            <a href="https://amphibiaweb.org/index.html" target="_blank">
+                <div>
+                    <div class="card-header text-dark  text-center">
+                        <h6 class="card-title">AmphibiaWeb</h6>
+                    </div>
+                <div class="card-body text-center text-dark">
+                <p class="card-text">
+                    Amfibiyalar katalogi
+                </p>
+            </div></div></a>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

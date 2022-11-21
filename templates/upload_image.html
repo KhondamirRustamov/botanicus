@@ -1,0 +1,60 @@
+{%extends "base.html"%}
+
+{% block title %} O'zbekiston Florasi {% endblock %}
+
+{% block body %}
+
+<style>
+    p {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+   h6 {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+</style>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+        <!-- File Upload-->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+    {% endif %}
+    {% endwith %}
+        <div class="form-group">
+            <label for="inputFile">File input</label>
+            <input class="form-control-file" type="file" name="inputFile" id="inputFile">
+        </div>
+
+        <!-- Location
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input class="form-control" type="text" name="location" id="location">
+        </div>-->
+
+        <div class="form-group">
+
+            <select class="form-control" id="species" name="species">
+                {% for i in floras %}
+                    <option value="{{i.spec}}">{{i.spec}}</option>
+                {% endfor %}
+            </select>
+            <script>
+            $(".js-example-tags").select2({
+              tags: true
+            });</script>
+
+        </div>
+        <!-- Text -->
+        <div class="form-group">
+            <label for="text">Write Text</label>
+            <textarea class="form-control" name="text" id="text" rows="5" placeholder="Add a Description"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{%extends "base.html"%}
+
+{% block title %} {{photo.species}} {% endblock %}
+
+{% block body %}
+
+<style>
+    p {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+   h6 {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+      div {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+</style>
+<div class="row d-flex justify-content-center">
+
+
+
+    <div class="col-8 py-3">
+    <div class="card text-dark">
+        <img class="card-img-top" src="data:image/jpg;base64,{{photo.rendered_data}}">
+        <div class="card-body text-center">
+                <h5 class="card-title">{{photo.species}}</h5>
+                <p class="card-text">
+                    {{photo.text}}
+                </p>
+                <p class="card-text">
+                    {{photo.pic_date}}
+                </p>
+
+            </div>
+    </div></div>
+
+
+</div>
+{% endblock %}

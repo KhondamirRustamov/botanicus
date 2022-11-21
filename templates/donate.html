@@ -1,0 +1,70 @@
+{%extends "base.html"%}
+
+{% block title %} Sayt uchun {% endblock %}
+
+{% block body %}
+<script>
+    function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+}
+</script>
+<div class="row d-flex justify-content-center py-3">
+    <div class="col-sm-11 col-md-5">
+        <div class="py-3">
+            <p>Xozirgi vaqtda bizning loyihamiz rivojiga xayriya qilmoqchi bo'lsangiz, buni faqat pul o'tkazma o'rqali qilishingiz mumkin.</p>
+        </div>
+        <div class="card">
+            <div class="card-header text-dark text-center">
+                <H4>PUL O'TKAZMALAR</H4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+                        <H5 class="py-3">UZCARD</H5>
+                    </div>
+                    <div class="col-8">
+                        <div class="d-flex">
+
+
+                            <input type="text" class="form-control" value="8600130965328596" id="myInput" readonly>
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" onclick="myFunction()">Copy <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                                  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                                  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                                </svg></button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-end py-2">
+                            <input type="text" class="form-control" value="RUSTAMOV KHONDAMIR" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-3">
+            <ul class="list-group text-center">
+              <li class="list-group-item list-group-item-secondary"><h4>Yig'ilgan pullar nima maqsadda ishlatiladi</h4></li>
+              <li class="list-group-item"><p>Eng avvalo bizning saytimiz O'zbekistonda yaxshi va tez ishlashi uchun TAS.IX zonasida domen sotib olish va eng arzon sayt xostingini ijara qilishga (yiliga ~ 170.000 so'm)</p></li>
+              <li class="list-group-item"><p>Birinchi maqsaddan mablag' ortib qolsa: Saytimiz kattalashishi bilan TAS.IX serverlarida saytni saqlash uchun ko'proq joy kerak bo'ladi - uni sotib olishga. (yiliga ~ 650.000 so'mdan 4.080.000 so'mgacha)</p></li>
+              <li class="list-group-item"><p>Ikkinchi maqsaddan mablag' ortib qolsa: Saytning ishlashini tezlashtirish uchun virtual server ijara qilishga (yiliga 960.000 so'mdan 3.000.000 so'mgacha)</p></li>
+              <li class="list-group-item"><p>Mablag'lar baribir ortib qolsa: Platformani ishlashini ta'minlash va kontent yaratishga</p></li>
+                <li class="list-group-item list-group-item-secondary"><p>Yig'ilgan va ishlatilgan xar bir so'm bo'yicha xisobot beriladi.</p>
+                <div class="d-flex justify-content-center">
+                    <a href="/report" class="btn btn-outline-secondary">Xisobot</a>
+                </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

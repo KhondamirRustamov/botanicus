@@ -1,0 +1,94 @@
+{%extends "base.html"%}
+
+{% block title %} O'zbekiston Florasi {% endblock %}
+
+{% block body %}
+
+<style>
+    p {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+   h6 {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+      div {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+</style>
+<div class="row d-flex justify-content-center">
+
+
+            <div class="col-sm-11 col-md-6 col-lg-4 py-3">
+            <div class="card text-dark">
+                    <div class="card-header text-center">
+                        <b><i>{{spec.spec}}</i></b>
+                    </div>
+
+                    <div class="container" style="line-height: 1;">
+                        <br>
+                        <p>Oila: <b>{{spec.family}} ({{spec.familyru}})</b></p>
+                        <p>Turkum: <b>{{spec.genus}} ({{spec.rod}})</b></p>
+                        <p>Tur: <b><i>{{spec.spec}}</i></b></p>
+                        <p>IPNI bo'yicha nomi: <i>{{spec.ipni}}</i></p>
+                        <br>
+                        <p><b>Rus tilidagi nomi: </b>{{spec.russian}}</p>
+                        <p><b>O'zbek tilidagi nomi: </b>{{spec.uzbek}}</p>
+                        <br>
+                        <p><b>Sinonimlari: </b><i>{{spec.synonim}}</i></p>
+                        <p><b>Hayotiy shakli: </b>{{spec.lifestyle}}</p>
+                        <p><b>Yashash muhiti: </b>{{spec.area}}</p>
+                        <p><b>Areal: </b>{{spec.areal}}</p>
+                        <p><b>O'zbekistonda tarqalishi: </b>{{spec.uzbekistan}}</p>
+                        <p><b>Endemism: </b>{{spec.endemism}}</p>
+                        <p><b>Status: </b>{{spec.status}}</p>
+                        <br>
+                        <p><b>Ishlatilishi: </b>{{spec.using}}</p>
+                        <br>
+                        <p><b>Izoh: </b>{{spec.comment}}</p>
+                        <br>
+                        <div class="row" style="line-height: 180%;">
+                            <div class="col-4"><b>Xavolalar:</b></div>
+                            <div class="col-8">
+                                <a href={{r[0]}} class="badge badge-pill badge-secondary" target="_blank">Plant List</a>
+                                <a href={{r[1]}} class="badge badge-pill badge-secondary" target="_blank">KEW gerbariyalari</a>
+                                <a href={{r[2]}} class="badge badge-pill badge-secondary" target="_blank">NCBI bazalari</a>
+                                <a href={{r[3]}} class="badge badge-pill badge-secondary" target="_blank">GBIF ma'lumotlari</a>
+                                <a href={{r[4]}} class="badge badge-pill badge-secondary" target="_blank">Google rasmlar</a>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="card-footer">
+                        Ma'lumotlar O'zbekiston Respublikasi Fanlar Akademiyasi qoshidagi Botanika Instituti xodimlari tomonidan yig'ilgan
+                    </div>
+            </div>
+            </div></div>
+{% if photo %}
+<div class="container">
+<div class="row py-3">
+{% for i in photo %}
+    <div class="col-4 py-3">
+    <div class="card text-dark">
+        <img class="card-img-top" src="data:image/jpg;base64,{{i.rendered_data}}">
+        <div class="card-body text-center">
+                <h5 class="card-title">{{i.spec}}</h5>
+                <p class="card-text">
+                    {{i.text}}
+                </p>
+                <p class="card-text">
+                    {{i.pic_date}}
+                </p>
+                <div class="d-flex justify-content-center">
+                    <a href="/photo_id/{{i.id}}" class="btn btn-outline-dark">O'tish</a>
+                </div>
+
+            </div>
+    </div></div>
+
+{% endfor %}
+</div></div>
+{% endif %}
+{% endblock %}

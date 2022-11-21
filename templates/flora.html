@@ -1,0 +1,254 @@
+{%extends "base.html"%}
+
+{% block title %} O'zbekiston Florasi {% endblock %}
+
+{% block body %}
+<div class="row d-flex justify-content-center">
+    <div class="col-sm-11 col-md-10 py-2">
+        <div class="d-flex justify-content-center py-3">
+            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Izlash bo'yicha tavsiyalar
+            </button>
+        </div>
+        <div class="collapse py-2" id="collapseExample">
+          <div class="card card-body">
+              <h6><span class="badge badge-secondary">TUR</span> Tur nomi bo'yicha izlash</h6>
+              <p>1.1. Turlarni izlashda ularning binar nomenklatura bo'yicha nomini kiriting, masalan:
+                  <i><u>Allium karataviense</u></i>
+              </p>
+              <p>1.2. Turni uning rus tilidagi nomi bo'yicha izlash uchun
+                  <u>Tur nomi (rus)</u>
+                  metodini tanlang. Va rus tilida binar nomenklatura bo'yicha tur nomini kiriting. Masalan:
+                  <i><u>Лук каратавский</u></i>
+              </p>
+              <p>1.3. Turni uning o'zbek tilidagi nomi bo'yicha izlash uchun
+                  <u>Tur nomi (o'zbek)</u>
+                  metodini tanlang. Va rus tilida binar nomenklatura bo'yicha tur nomini kiriting. Masalan:
+                  <i><u>Қоратоғ пиёзи</u></i>
+              </p>
+
+              <h6><span class="badge badge-secondary">TURKUM</span> Turkum nomi bo'yicha izlash</h6>
+              <p>2.1. Turkum bo'yicha izlaganda, O'zbekiston florasida ushbu turkumga mansub bo'lgan
+                  barcha turlarning ro'yxati chiqadi. Turkumlarni ularning lotin nomlari bo'yicha izlash uchun
+                  <u>Turkum nomi (lotin)</u>
+                  metodini tanlang. Va turkumning lotin tilidagi nomini kiriting. Masalan:
+                  <i><u>Eremurus</u></i>
+              </p>
+              <p>2.2. Turkumlarni rus tilidagi nomlari bo'yicha izlash uchun
+                  <u>Turkum nomi (rus)</u>
+                  metodini tanlang. Va rus tilida turkum nomini kiriting. Masalan:
+                  <i><u>Эремурус</u></i>
+              </p>
+
+              <h6><span class="badge badge-secondary">OILA</span> Oila nomi bo'yicha izlash</h6>
+              <p>3.1. Oila bo'yicha izlaganda, O'zbekiston florasida ushbu oilaga mansub bo'lgan
+                  barcha turlarning ro'yxati chiqadi. Oilalarni ularning lotin nomlari bo'yicha izlash uchun
+                  <u>Oila nomi (lotin)</u>
+                  metodini tanlang. Va oilaning lotin tilidagi nomini kiriting. Masalan:
+                  <u>Solanaceae</u>
+              </p>
+              <p>3.2. Oilalarni rus tilidagi nomlari bo'yicha izlash uchun
+                  <u>Oila nomi (rus)</u>
+                  metodini tanlang. Va rus tilida oila nomini kiriting. Masalan:
+                  <u>Пасленовые</u>
+              </p>
+              <h6><span class="badge badge-secondary">?</span> Izlash natija bermagan bo'lsa:</h6>
+              <p>4.1. Kiritilgan tur/turkum/oila nomini to'g'ri yozilganligini tekshirib ko'ring
+              </p>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-11 col-md-6 col-lg-4 py-3">
+        <form method="post">
+            <input type="text" name="text" id="text" class="form-control form-control-md" placeholder="Tur/Turkum/Oila bo'yicha izlash" value="{{text[1]}}"><br>
+            <select name="metod" id="metod" class="form-control">
+                <option>Tur nomi (lotin)</option>
+                <option>Tur nomi (rus)</option>
+                <option>Tur nomi (o'zbek)</option>
+                <option>Turkum nomi (lotin)</option>
+                <option>Turkum nomi (rus)</option>
+                <option>Oila nomi (lotin)</option>
+                <option>Oila nomi (rus)</option>
+            </select>
+            <br>
+            <div class="d-flex justify-content-center">
+                <input type="submit" class="btn btn-success rounded" value="Izlash">
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    p {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+   h6 {
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+   }
+</style>
+<div class="row d-flex justify-content-center">
+
+            {% if a|length >1 %}
+                {% for s in spec %}
+
+
+            <div class="col-sm-11 col-md-6 col-lg-4 py-3">
+            <div class="card text-dark">
+                    <div class="card-header text-center">
+                        <a href="{{ url_for ('flora_id', id=s.id) }}"><b><i>{{s.spec}}</i></b></a>
+                    </div></div></div>
+
+    {% endfor %}
+            {% elif b|length >0 %}
+            <div class="container text-center">
+                <h4>{{text[0]}} {{text[1]}}</h4>
+                <h5>Turlar soni: {{c}}</h5>
+            </div>
+            <div class="row container">
+
+                {% for i in spec%}
+
+                    <div class="container col-sm-11 col-md-4 py-2 ">
+                                <div class="card border-dark  d-flex align-items-center justify-content-center" style="width:33 vh; height: 22vh;">
+                                    <div class="container d-flex align-items-center justify-content-center">
+                                        <p class="text-center"><b><i>{{i.spec}}</i></b></p>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=#{{i.id}}>
+                                            Ko'rish
+                                        </button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div class="modal fade" id={{i.id}} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{i.spec}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="card">
+                                <div class="card card-body">
+                                    <div class="container" style="line-height: 1;">
+                                            <p>Oila: <b>{{i.family}} ({{i.familyru}})</b></p>
+                                            <p>Turkum: <b>{{i.genus}} ({{i.rod}})</b></p>
+                                            <p>Tur: <b><i>{{i.spec}}</i></b></p>
+                                            <p>IPNI bo'yicha nomi: <i>{{i.ipni}}</i></p>
+                                            <br>
+                                            <p><b>Rus tilidagi nomi: </b>{{i.russian}}</p>
+                                            <p><b>O'zbek tilidagi nomi: </b>{{i.uzbek}}</p>
+                                            <br>
+                                            <p><b>Sinonimlari: </b><i>{{i.synonim}}</i></p>
+                                            <p><b>Hayotiy shakli: </b>{{i.lifestyle}}</p>
+                                            <p><b>Yashash muhiti: </b>{{i.area}}</p>
+                                            <p><b>Areal: </b>{{i.areal}}</p>
+                                            <p><b>O'zbekistonda tarqalishi: </b>{{i.uzbekistan}}</p>
+                                            <p><b>Endemism: </b>{{i.endemism}}</p>
+                                            <p><b>Status: </b>{{i.status}}</p>
+                                            <br>
+                                            <p><b>Ishlatilishi: </b>{{i.using}}</p>
+                                            <br>
+                                            <p><b>Izoh: </b>{{i.comment}}</p>
+                                            <br>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <p class="text-center">
+                                Ma'lumotlar O'zbekiston Respublikasi Fanlar Akademiyasi qoshidagi Botanika Instituti xodimlari tomonidan yig'ilgan
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% elif d|length >0 %}
+            <div class="text-dark text-center">
+                <br>
+                <h3>{{spec}}</h3>
+                <br>
+                <br>
+            </div>
+
+            {% else %}
+            <div class="container text-center py-3">
+                <br>
+                <h4>O'zbekiston florasi turlarining namunalari</h4>
+            </div>
+            <div class="row container py-3">
+
+                {% for el in z%}
+                    <div class="container col-sm-11 col-md-4 py-2">
+                                <div class="card border-dark d-flex align-items-center justify-content-center" style="width:33 vh; height: 22vh;">
+                                    <div class="container text-center d-flex align-items-center justify-content-center">
+                                        <p class="text-center"><b><i>{{el.spec}}</i></b></p>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=#{{el.spec}}>
+                                            Ko'rish
+                                        </button>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div class="modal fade" id={{el.spec}} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabe">{{el.spec}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="card">
+                                <div class="card card-body">
+                                    <div class="container" style="line-height: 1;">
+                                            <p>Oila: <b>{{el.family}} ({{el.familyru}})</b></p>
+                                            <p>Turkum: <b>{{el.genus}} ({{el.rod}})</b></p>
+                                            <p>Tur: <b><i>{{el.spec}}</i></b></p>
+                                            <p>IPNI bo'yicha nomi: <i>{{el.ipni}}</i></p>
+                                            <br>
+                                            <p><b>Rus tilidagi nomi: </b>{{el.russian}}</p>
+                                            <p><b>O'zbek tilidagi nomi: </b>{{el.uzbek}}</p>
+                                            <br>
+                                            <p><b>Sinonimlari: </b><i>{{el.synonim}}</i></p>
+                                            <p><b>Hayotiy shakli: </b>{{el.lifestyle}}</p>
+                                            <p><b>Yashash muhiti: </b>{{el.area}}</p>
+                                            <p><b>Areal: </b>{{el.areal}}</p>
+                                            <p><b>O'zbekistonda tarqalishi: </b>{{el.uzbekistan}}</p>
+                                            <p><b>Endemism: </b>{{el.endemism}}</p>
+                                            <p><b>Status: </b>{{el.status}}</p>
+                                            <br>
+                                            <p><b>Ishlatilishi: </b>{{el.using}}</p>
+                                            <br>
+                                            <p><b>Izoh: </b>{{spec.comment}}</p>
+                                            <br>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <p class="text-center">
+                                Ma'lumotlar O'zbekiston Respublikasi Fanlar Akademiyasi qoshidagi Botanika Instituti xodimlari tomonidan yig'ilgan
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+
+</div>
+
+{% endblock %}
